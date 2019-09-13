@@ -37,7 +37,7 @@ FROM lsiobase/alpine:3.10
 # set version label
 LABEL maintainer="Auska"
 
-ENV TZ=Asia/Shanghai SECRET=admin TRACKERSAUTO=Yes WEBUIPORT=8989
+ENV TZ=Asia/Shanghai SECRET=admin TRACKERSAUTO=Yes WEBUIPORT=8989 PGID=0 PUID=0
 
 # copy local files
 COPY  root /
@@ -53,5 +53,5 @@ RUN \
 
 # ports and volumes
 VOLUME /mnt /config
-EXPOSE 8989  6881  6881/udp
+EXPOSE 8989  8999  8999/udp
 ENTRYPOINT [ "/init" ]

@@ -9,8 +9,8 @@ docker create --name=qBittorrent \
 -v <path to config>:/config \
 -e PGID=<gid> -e PUID=<uid> \
 -e TZ=<timezone> \
--p 6801:6801 -p 8989:8989 \
-auska/docker-qBittorrent
+-p 8999:8999 -p 8989:8989 \
+auska/docker-qbittorrent
 ```
 
 ### User / Group Identifiers
