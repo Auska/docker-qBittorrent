@@ -26,6 +26,8 @@ if [ "$TRACKERSAUTO" == "YES" ];then
 fi
 
 # permissions
+if [ "$FIX" == "YES" ];then
 chown abc:abc -R \
 	/mnt \
 	/config
+fi

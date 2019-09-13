@@ -37,7 +37,7 @@ FROM lsiobase/alpine:3.10
 # set version label
 LABEL maintainer="Auska"
 
-ENV TZ=Asia/Shanghai SECRET=admin TRACKERSAUTO=Yes WEBUIPORT=8989 PGID=0 PUID=0
+ENV TZ=Asia/Shanghai SECRET=admin TRACKERSAUTO=Yes WEBUIPORT=8989 PGID=0 PUID=0 FIX=YES
 
 # copy local files
 COPY  root /
