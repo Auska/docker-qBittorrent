@@ -26,4 +26,5 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
 
 ## Versions
 
++ **0.0.2:** Update QB 4.1.8.1.
 + **0.0.1:** Rebase to alpine linux 3.10.
