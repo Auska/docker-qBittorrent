@@ -1,7 +1,7 @@
-# My Blog
+# 我的博客
 http://blog.auska.win
 
-## Usage
+## 创建镜像
 
 ```
 docker create --name=qBittorrent \
@@ -13,18 +13,17 @@ docker create --name=qBittorrent \
 auska/docker-qbittorrent
 ```
 
-### User / Group Identifiers
+## 参数解释
 
-Sometimes when using data volumes (`-v` flags) permissions issues can arise between the host OS and the container. We avoid this issue by allowing you to specify the user `PUID` and group `PGID`. Ensure the data volume directory on the host is owned by the same user you specify and it will "just work" ™.
+* `-p 8989` 网页UI端口
+* `-p 8999` - BT软件通讯端口
+* `-v /config` - 配置文件目录
+* `-v /mnt` - 下载文件目录
+* `-v /watch` - 监视种子目录
+* `-e PGID` 用户的GroupID，留空为root
+* `-e PUID` 用户的UserID，留空为root
+* `-e TZ` 时区 默认 Asia/Shanghai
 
-In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as below:
+## 版本介绍
 
-```
-  $ id <dockeruser>
-    uid=1001(dockeruser) gid=1001(dockergroup) groups=1001(dockergroup)
-```
-
-## Versions
-
-+ **0.0.2:** Update QB 4.1.8.1.
-+ **0.0.1:** Rebase to alpine linux 3.10.
+latest ： 使用了QB EE的源码编译的。
