@@ -26,4 +26,4 @@ auska/docker-qbittorrent
 
 ## 版本介绍
 
-latest ： 使用了QB EE的源码编译的。
+latest ： 使用了最新的QB EE的源码编译的。
