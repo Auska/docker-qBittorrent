@@ -24,6 +24,8 @@ auska/docker-qbittorrent
 * `-e PUID` 用户的UserID，留空为root
 * `-e TZ` 时区 默认 Asia/Shanghai
 
+默认登陆账户/密码：admin/adminadmin
+
 ## 版本介绍
 
-latest ： 使用了最新的QB EE的源码编译的。
+latest ： 使用了最新的QB EE的源码编译的（本镜像像支持PT）。
