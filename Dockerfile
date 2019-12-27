@@ -1,4 +1,4 @@
-FROM alpine:3.10 as compilingqB
+FROM alpine:3.11 as compilingqB
 
 #compiling qB
 
@@ -33,7 +33,7 @@ RUN  apk add --no-cache ca-certificates make g++ gcc qt5-qtsvg-dev boost-dev qt5
 
 # docker qB
 
-FROM lsiobase/alpine:3.10
+FROM lsiobase/alpine:3.11
 
 # set version label
 LABEL maintainer="Auska"
