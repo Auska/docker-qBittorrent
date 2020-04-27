@@ -3,7 +3,7 @@ FROM alpine:3.11 as compilingqB
 #compiling qB
 
 ARG  LIBTORRENT_VER=1.1.14
-ARG  QBITTORRENT_VER=4.2.3.10
+ARG  QBITTORRENT_VER=4.2.5.10
 
 
 RUN  apk add --no-cache ca-certificates make g++ gcc qt5-qtsvg-dev boost-dev qt5-qttools-dev file \
