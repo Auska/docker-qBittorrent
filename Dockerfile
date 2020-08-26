@@ -2,8 +2,8 @@ FROM alpine:3.12 as compilingqB
 
 #compiling qB
 
-ARG  LIBTORRENT_VER=1.2.7
-ARG  QBITTORRENT_VER=4.2.5.13
+ARG  LIBTORRENT_VER=1.2.9
+ARG  QBITTORRENT_VER=4.2.5.14
 
 
 RUN  apk add --no-cache ca-certificates make g++ gcc qt5-qtsvg-dev boost-dev qt5-qttools-dev file \
@@ -23,7 +23,7 @@ RUN  apk add --no-cache ca-certificates make g++ gcc qt5-qtsvg-dev boost-dev qt5
 &&   cd  /qbtorrent/qBittorrent-Enhanced-Edition-release-${QBITTORRENT_VER} \
 &&   sed -i '/Copyright (c) 2011-2020 The qBittorrent project/a\    <p>Compile By Auska<\/p>' src/webui/www/private/views/about.html \
 &&   sed -i -e 's|qBittorrent Enhanced|qBittorrent|g' -e 's|if (!torrent->isPrivate()) ||g' src/base/bittorrent/session.cpp \
-&&   sed -i -e 's|VER_BUILD = 13|VER_BUILD = 0|g' version.pri \
+&&   sed -i -e 's|VER_BUILD = 14|VER_BUILD = 0|g' version.pri \
 &&   ./configure   --disable-gui --host=x86_64-alpine-linux-musl \
 &&   make install \
 &&   ldd /usr/local/bin/qbittorrent-nox   |cut -d ">" -f 2|grep lib|cut -d "(" -f 1|xargs tar -chvf /qbtorrent/qbittorrent.tar  \
