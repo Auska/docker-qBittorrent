@@ -2,10 +2,6 @@ FROM alpine:3.12 as compilingqB
 
 #compiling qB
 
-ARG LIBTORRENT_VER=1.2.10
-ARG QBITTORRENT_VER=4.2.5.16
-
-
 RUN apk add --no-cache wget curl bash \
 && mkdir /qbtorrent \
 && cd /qbtorrent \
