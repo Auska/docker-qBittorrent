@@ -5,8 +5,8 @@ FROM alpine:3.12 as compilingqB
 RUN apk add --no-cache wget curl bash \
 && mkdir /qbtorrent \
 && cd /qbtorrent \
-&& wget https://github.com/userdocs/qbittorrent-nox-static/raw/master/qbittorrent-nox-static-musl.sh \
-&& bash qbittorrent-nox-static-musl.sh all -b "/qbtorrent"
+&& wget https://github.com/userdocs/qbittorrent-nox-static/raw/master/qbittorrent-nox-static.sh \
+&& bash qbittorrent-nox-static.sh all -b "/qbtorrent"
  
 
 # docker qB
@@ -20,7 +20,7 @@ ENV TZ=Asia/Shanghai SECRET=admin TRACKERSAUTO=Yes WEBUIPORT=8989 PGID=0 PUID=0 
 
 # copy local files
 COPY root /
-COPY --from=compilingqB /qbtorrent/bin/qbittorrent-nox /usr/local/bin/qbittorrent-nox
+COPY --from=compilingqB /qbtorrent/completed/qbittorrent-nox /usr/local/bin/qbittorrent-nox
 
 RUN \
 	echo "**** install packages ****" \
