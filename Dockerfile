@@ -2,11 +2,13 @@ FROM alpine:3.12 as compilingqB
 
 #compiling qB
 
+ENV LT=v1.2.12 QT=release-4.3.2
+
 RUN apk add --no-cache wget curl bash \
 && mkdir /qbtorrent \
 && cd /qbtorrent \
 && wget https://github.com/userdocs/qbittorrent-nox-static/raw/master/qbittorrent-nox-static.sh \
-&& bash qbittorrent-nox-static.sh all -b "/qbtorrent"
+&& bash qbittorrent-nox-static.sh all -b "/qbtorrent" -lt $LT -qt $QT
  
 
 # docker qB
