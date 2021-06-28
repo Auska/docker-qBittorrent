@@ -1,8 +1,8 @@
-FROM alpine:3.12 as compilingqB
+FROM alpine:3.13 as compilingqB
 
 #compiling qB
 
-ENV LT=v1.2.12 QT=release-4.3.3
+ENV LT=v1.2.14 QT=release-4.3.6
 
 RUN apk add --no-cache wget curl bash \
 && mkdir /qbtorrent \
@@ -13,12 +13,12 @@ RUN apk add --no-cache wget curl bash \
 
 # docker qB
 
-FROM lsiobase/alpine:3.12
+FROM lsiobase/alpine:3.13
 
 # set version label
 LABEL maintainer="Auska"
 
-ENV TZ=Asia/Shanghai SECRET=admin TRACKERSAUTO=Yes WEBUIPORT=8989 PGID=0 PUID=0 UMASKSET=022 FIX=YES
+ENV TZ=Asia/Shanghai WEBUIPORT=8989 PGID=0 PUID=0 UMASKSET=022
 
 # copy local files
 COPY root /
@@ -29,7 +29,6 @@ RUN \
 #	&& sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories \
 	&& apk add --no-cache bash ca-certificates tzdata python3 \
 	&& rm -rf /var/cache/apk/* \
-	&& chmod a+x /defaults/updatetrackers.sh \
 	&& chmod a+x /usr/local/bin/qbittorrent-nox 
 
 # ports and volumes
