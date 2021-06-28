@@ -5,8 +5,7 @@
 [[ ! -f /config/qBittorrent/config/qBittorrent.conf ]] && cp /defaults/qBittorrent.conf /config/qBittorrent/config/qBittorrent.conf
 
 # permissions
-if [ "$FIX" == "YES" ];then
+
 chown abc:abc -R \
 	/mnt \
 	/config
-fi
