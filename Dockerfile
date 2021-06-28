@@ -1,8 +1,8 @@
-FROM alpine:3.12 as compilingqB
+FROM alpine:3.13 as compilingqB
 
 #compiling qB
 
-ENV LT=v1.2.12 QT=release-4.3.3
+ENV LT=v1.2.14 QT=release-4.3.6
 
 RUN apk add --no-cache wget curl bash \
 && mkdir /qbtorrent \
@@ -13,7 +13,7 @@ RUN apk add --no-cache wget curl bash \
 
 # docker qB
 
-FROM lsiobase/alpine:3.12
+FROM lsiobase/alpine:3.13
 
 # set version label
 LABEL maintainer="Auska"
