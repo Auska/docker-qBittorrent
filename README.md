@@ -18,7 +18,7 @@ auska/docker-qbittorrent
 * `-p 8989` 网页UI端口
 * `-p 8999` - BT软件通讯端口
 * `-v /config` - 配置文件目录
-* `-v /mnt` - 下载文件目录
+* `-v /media` - 下载文件目录
 * `-v /watch` - 监视种子目录
 * `-e PGID` 用户的GroupID，留空为root
 * `-e PUID` 用户的UserID，留空为root
