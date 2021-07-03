@@ -27,8 +27,6 @@ COPY --from=compilingqB /qbtorrent/qbittorrent-nox /usr/local/bin/qbittorrent-no
 RUN \
 	echo "**** install packages ****" \
 #	&& sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories \
-	&& apk add --no-cache bash ca-certificates tzdata python3 \
-	&& rm -rf /var/cache/apk/* \
 	&& chmod a+x /usr/local/bin/qbittorrent-nox 
 
 # ports and volumes
