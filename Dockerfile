@@ -1,37 +1,28 @@
-FROM alpine:3.13 as compilingqB
-
-#compiling qB
-
-ENV LT=v1.2.14 QT=release-4.3.6
-
-RUN apk add --no-cache wget curl bash \
-&& mkdir /qbtorrent \
-&& cd /qbtorrent \
-&& wget https://github.com/userdocs/qbittorrent-nox-static/raw/master/qbittorrent-nox-static.sh \
-&& bash qbittorrent-nox-static.sh all -b "/qbtorrent" -lt $LT -qt $QT
- 
-
-# docker qB
-
-FROM lsiobase/alpine:3.13
+FROM ghcr.io/linuxserver/baseimage-alpine:edge
 
 # set version label
+ARG BUILD_DATE="2022-03-02"
+ARG VERSION="4.4.1"
+LABEL build_version="version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="Auska"
 
-ENV TZ=Asia/Shanghai WEBUIPORT=8989 PGID=0 PUID=0 UMASKSET=022
+# environment settings
+ENV HOME="/config" \
+XDG_CONFIG_HOME="/config" \
+XDG_DATA_HOME="/config"
 
-# copy local files
-COPY root /
-COPY --from=compilingqB /qbtorrent/completed/qbittorrent-nox /usr/local/bin/qbittorrent-nox
-
+# install runtime packages and qbitorrent-cli
 RUN \
-	echo "**** install packages ****" \
-#	&& sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories \
-	&& apk add --no-cache bash ca-certificates tzdata python3 \
-	&& rm -rf /var/cache/apk/* \
-	&& chmod a+x /usr/local/bin/qbittorrent-nox 
+  apk add -U --update --no-cache \
+    bash \
+    curl \
+    python3
 
-# ports and volumes
-VOLUME /mnt /config
-EXPOSE 8989 8999 8999/udp
-ENTRYPOINT [ "/init" ]
+# add local files
+COPY root/ /
+COPY qbittorrent-nox /usr/bin
+
+# ports and volumes
+EXPOSE 8989 6881 6881/udp
+
+VOLUME /config
