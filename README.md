@@ -1,6 +1,3 @@
-# 我的博客
-http://blog.auska.win
-
 ## 创建镜像
 
 ```
@@ -61,4 +58,3 @@ auska/docker-qbittorrent
 ## 版本介绍
 
 latest ： 使用了最新的QB的源码编译的。
-1.X    ： 功能与latest版本相同，但使用libtorrent 1.1.X 编译。
