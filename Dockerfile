@@ -16,7 +16,8 @@ RUN \
   apk add -U --update --no-cache \
     bash \
     curl \
-    python3
+    python3 \
+    ca-certificates
 
 # add local files
 COPY root/ /
