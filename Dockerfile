@@ -1,8 +1,8 @@
 FROM ghcr.io/linuxserver/baseimage-alpine:edge
 
 # set version label
-ARG BUILD_DATE="2022-03-02"
-ARG VERSION="4.4.1"
+ARG BUILD_DATE="2022-03-26"
+ARG VERSION="4.4.2"
 LABEL build_version="version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="Auska"
 
